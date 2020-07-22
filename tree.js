@@ -11,22 +11,10 @@ class BinarySearchTree {
         this.root = null;
     }
 
-    /*TODO:
-    insert(data)
-    remove(data)
-
-    Helper functions
-    findMinNode()
-    getRootNode()
-    inorder()
-    preorder()
-    postorder()
-    search()
-    */
-
     insert(data) {
         var newNode = new Node(data);
 
+        // add root if root is null
         if (this.root == null) {
             this.root = newNode;
         } else {
@@ -46,9 +34,11 @@ class BinarySearchTree {
                 this.insertNode(node.left, newNode);
             }
         } else {
+                // else go right
             if (node.right === null) {
                 node.right = newNode;
             } else {
+                // keep going right
                 this.insertNode(node.right, newNode);
             }
         }
