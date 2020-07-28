@@ -35,7 +35,7 @@ function quickSort(items, left, right) {
         if (left < index - 1) { // recurse because left side has more items
             quickSort(items, left, index - 1);
         }
-        if (index < right) { // recurse because right side has more items
+        if (index < right) { // recurse because right side has more
             quickSort(items, index, right);
         }
 
