@@ -8,6 +8,7 @@ function isUnique (string) {
     }
 }
 
+console.log("isUnique");
 console.log(isUnique("aaaaa"));
 console.log(isUnique("abcd"));
 
@@ -29,5 +30,23 @@ function isUniqueCrack (string) {
 
 }
 
+console.log("isUniqueCrack");
 console.log(isUniqueCrack("aaaaa"));
 console.log(isUniqueCrack("abcd"));
+
+function checkPermutation (string1, string2) {
+    // check if they are the same length, if not return false
+    if (string1.length != string2.length) return false;
+
+    // sort strings
+    // must convert string to arrays to sort, the notation [...var] allows you to do this
+    var sorted1 = [...string1].sort();
+    var sorted2 = [...string2].sort();
+    var actuallyTho = sorted1.toString().localeCompare(sorted2.toString());
+    return (actuallyTho == 0);
+}
+
+console.log("checkPermutation");
+console.log(checkPermutation("abc", "abcde"));
+console.log(checkPermutation("abc", "bca"));
+console.log(checkPermutation("asd", "abc"));
