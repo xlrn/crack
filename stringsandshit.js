@@ -50,3 +50,30 @@ console.log("checkPermutation");
 console.log(checkPermutation("abc", "abcde"));
 console.log(checkPermutation("abc", "bca"));
 console.log(checkPermutation("asd", "abc"));
+
+
+function urlify (string) {
+    return encodeURIComponent(string);
+}
+
+// the hacky version
+function urlify2 (string) {
+    if (!string.includes(" ")) {
+        return string;
+    }
+    // use regex to replace multiple spaces with one space
+    // backslash is used to encase what you want to replace instead of quotation marks
+    // \s\s+ is to cover most type of white space
+    // /g means global --> covers the entire string
+    var urlstring = string.replace(/\s\s+/g, " ");
+
+    // do it again to replace single spaces with desired substring
+    urlstring = urlstring.replace(/\s/g, "%20");
+
+    return urlstring;
+}
+
+console.log("URLify");
+console.log(urlify2("aaa     aaa aaa  aaa"));
+console.log(urlify2("hello my name is greg"));
+console.log(urlify2("askdhaskdh"));
