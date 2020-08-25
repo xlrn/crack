@@ -77,3 +77,52 @@ console.log("URLify");
 console.log(urlify2("aaa     aaa aaa  aaa"));
 console.log(urlify2("hello my name is greg"));
 console.log(urlify2("askdhaskdh"));
+
+
+function possiblyPalindrome (string) {
+    if (string.length <= 1 || string === "") {
+        return true;
+    }
+
+    var counts = char_counter(string);
+
+    var oddCount = 0;
+    for (char in counts) {
+        if (!isEven(counts[char])) {
+            oddCount++;
+        }
+    }
+
+    if (oddCount > 1) {
+        return false;
+    } else return true;
+}
+
+function isEven (number) {
+    if (number % 2 == 0) {
+        return true;
+    } else return false;
+}
+
+
+function char_counter (string) {
+    var counts = {};
+    for (i = 0; i < string.length; i++) {
+        // get char
+        var character = string.charAt(i);
+        
+        // get the count for it, undefined if we don't know it yet
+        var count = counts[character];
+        
+        // if we have the count, store it + 1, else store 1
+        counts[character] = count ? count + 1 : 1
+    }
+    return counts;
+}
+
+console.log(char_counter("aaa"));
+console.log(possiblyPalindrome("aaaa"));
+console.log(possiblyPalindrome("abcd"));
+console.log(possiblyPalindrome("aavvxcc"));
+console.log(possiblyPalindrome("aaabbccddeeff"));
+console.log(possiblyPalindrome("aaabbbcccddeeff"));
