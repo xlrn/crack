@@ -106,6 +106,7 @@ function isEven (number) {
 
 
 function char_counter (string) {
+    // create a map for chars and count
     var counts = {};
     for (i = 0; i < string.length; i++) {
         // get char
