@@ -120,9 +120,62 @@ function char_counter (string) {
     return counts;
 }
 
+console.log("char_counter");
 console.log(char_counter("aaa"));
+console.log("possiblyPalindrome");
 console.log(possiblyPalindrome("aaaa"));
 console.log(possiblyPalindrome("abcd"));
 console.log(possiblyPalindrome("aavvxcc"));
 console.log(possiblyPalindrome("aaabbccddeeff"));
 console.log(possiblyPalindrome("aaabbbcccddeeff"));
+
+
+function oneEdit (string1, string2) {
+    if (string1.length == string2.length) {
+        return oneReplace(string1, string2);
+    }
+    if (Math.abs(string1.length - string2.length) == 1) {
+        return oneInsert(string1, string2);
+    }
+    return false;
+}
+
+function oneReplace (string1, string2) {
+    var isDifferent = false; 
+    // iterate through longer string
+    for (i = 0; i < string1.length; i++) {
+        // check if chars at index i are different
+        if (string1.charAt(i) != string2.charAt(i)) {
+            // if they are different from previous index
+            if (isDifferent) {
+                return false;
+            }
+            // set difference marker to true
+            isDifferent = true;
+        }        
+    }
+    return true;
+}
+
+function oneInsert (string1, string2) {
+    var index1 = 0;
+    var index2 = 0;
+
+    while (index2 < string2.length && index1 < string1.length) {
+        if (string1.charAt(index1) != string2.charAt(index2)) {
+            if (index1 != index2) {
+                return false;
+            }
+            index2++;
+        } else {
+            index1++;
+            index2++;
+        }
+    }
+    return true;
+}
+console.log("oneEdit");
+console.log(oneEdit("aaaa", "aaa"));
+console.log(oneEdit("abc", "abd"));
+console.log(oneEdit("asdf", "abcd"));
+console.log(oneEdit("aaa", "aaaa"));
