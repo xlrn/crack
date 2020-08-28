@@ -1,3 +1,5 @@
+// Chapter 1 of Crack - Strings and Arrays
+
 function isUnique (string) {
     for (i = 0; i < string.length; i++) {
         for (j = i+1; j < string.length; j++) {
@@ -204,6 +206,19 @@ function stringCompression(string) {
     return output;
 }
 
+console.log("stringCompression");
 console.log(stringCompression(""));
 console.log(stringCompression("aaabbbccc"));
 console.log(stringCompression("aabbbccccd"));
+
+// rotate NxN matrix by 90 degrees
+// perform algorithm as such:
+// for i = 0 to n
+//     temp = top[i];
+//     top[i] = left[i];
+//     left[i] = bottom[i];
+//     bottom[i] = right[i];
+//     right[i] = temp;
+function rotateMatrix (matrix) {
+
+}
