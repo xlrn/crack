@@ -180,3 +180,21 @@ console.log(oneEdit("aaaa", "aaa"));
 console.log(oneEdit("abc", "abd"));
 console.log(oneEdit("asdf", "abcd"));
 console.log(oneEdit("aaa", "aaaa"));
+
+function stringCompression(string) {
+    let i = string.length - 1;
+
+    while (i >= 0) {
+        let curr = string[i];
+        let c = 1;
+
+        while (curr === string[--i]) c++;
+
+        if (c > 1) {
+            string.splice(i + 2, c - 1, ...String(c));
+
+        }
+    }
+
+    return string.length;
+}
