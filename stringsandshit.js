@@ -220,5 +220,6 @@ console.log(stringCompression("aabbbccccd"));
 //     bottom[i] = right[i];
 //     right[i] = temp;
 function rotateMatrix (matrix) {
-
+    // check if matrix is of 0 length in both directions
+    
 }
