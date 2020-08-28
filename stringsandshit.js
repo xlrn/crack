@@ -182,19 +182,28 @@ console.log(oneEdit("asdf", "abcd"));
 console.log(oneEdit("aaa", "aaaa"));
 
 function stringCompression(string) {
-    let i = string.length - 1;
-
-    while (i >= 0) {
-        let curr = string[i];
-        let c = 1;
-
-        while (curr === string[--i]) c++;
-
-        if (c > 1) {
-            string.splice(i + 2, c - 1, ...String(c));
-
-        }
+    // check if string is empty
+    if (string.length == 0) {
+        return "";
     }
 
-    return string.length;
+    var output = "";
+    var count = 0;
+
+    // iterate through entire string
+    for (i = 0; i < string.length; i++) {
+        // add 1 to counter to count for the first letter encountered
+        count++;
+        // if next letter is not the same, add the letter and count to the output
+        if (string[i] != string[i+1]) {
+            output += string[i]+count;
+            // reset count for next letter encountered
+            count = 0;
+        }
+    }
+    return output;
 }
+
+console.log(stringCompression(""));
+console.log(stringCompression("aaabbbccc"));
+console.log(stringCompression("aabbbccccd"));
