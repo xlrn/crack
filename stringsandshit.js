@@ -223,3 +223,14 @@ function rotateMatrix (matrix) {
     // check if matrix is of 0 length in both directions
     
 }
+// check if s1 is s2 but backwards
+function rotateString (s1, s2) {
+    var s2ButReverse = s2.split("").reverse().join("");
+    
+    if (s1 === s2ButReverse) {
+        return true;
+    } else return false;
+}
+
+console.log("rotateString");
+console.log(rotateString("abc", "cba"));
